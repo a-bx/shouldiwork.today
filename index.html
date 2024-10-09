@@ -7,9 +7,10 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f3f4f6;
@@ -20,16 +21,43 @@
             font-size: 2em;
             max-width: 80%;
             color: #111827;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f5f9;
+            font-size: 0.9em;
+            color: #4b5563;
+            position: relative;
+        }
+
+        footer a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
     <div class="message">
-        <h1 id="question">Should I work today?</h1>
-        <p id="excuse"></p>
+        <p id="question">Should I work today?</p>
+        <h1 id="excuse"></h1>
     </div>
+    <footer>
+        <p>Proudly created by IA <a href="https://github.com/a-bx/shouldiwork.today">shouldiwork.today</a></p>
 
+      </footer>
     <script>
         const excuses = [
             "The coffee machine is broken!",
@@ -85,6 +113,5 @@
 
         document.getElementById('excuse').textContent = getRandomExcuse();
     </script>
-
 </body>
 </html>
