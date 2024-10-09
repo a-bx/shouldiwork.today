@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Should I Work Today?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .message {
+            text-align: center;
+            font-size: 2em;
+            max-width: 80%;
+            color: #111827;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="message">
+        <h1 id="question">Should I work today?</h1>
+        <p id="excuse"></p>
+    </div>
+
+    <script>
+        const excuses = [
+            "The coffee machine is broken!",
+            "It’s National Nap Day.",
+            "I heard Mercury is in retrograde.",
+            "I'm still recovering from the weekend.",
+            "My cat is sitting on my lap, can't move.",
+            "It's taco Tuesday, can't work on an empty stomach.",
+            "The weather is too nice to stay inside.",
+            "I'm in the middle of a Netflix binge.",
+            "My plants need watering, it's urgent!",
+            "I deserve a self-care day."
+        ];
+
+        function getRandomExcuse() {
+            const randomIndex = Math.floor(Math.random() * excuses.length);
+            return excuses[randomIndex];
+        }
+
+        document.getElementById('excuse').textContent = getRandomExcuse();
+    </script>
+
+</body>
+</html>
