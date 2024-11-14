@@ -50,11 +50,9 @@ const excuses = [
   "It must be 6pm somewhere..."
 ];
 
-export default function Home({ initialExcuse, host }) {
+export default function Home({ initialExcuse }) {
     const [excuse, setExcuse] = useState(initialExcuse)
-    const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL ?
-        `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` :
-        `http://${host}`
+    const baseUrl = process.env.NEXT_PUBLIC_DOMAIN || 'https://shouldiwork.today'
 
     function getRandomExcuse() {
         const randomIndex = Math.floor(Math.random() * excuses.length)
@@ -186,12 +184,10 @@ export default function Home({ initialExcuse, host }) {
 
 export async function getServerSideProps({ req }) {
     const initialExcuse = excuses[Math.floor(Math.random() * excuses.length)]
-    const host = req.headers.host || 'localhost:3000'
 
     return {
         props: {
-            initialExcuse,
-            host
+            initialExcuse
         }
     }
 }
